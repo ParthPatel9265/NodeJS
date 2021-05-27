@@ -1,4 +1,4 @@
-<%- include('../includes/head.ejs') %>
+ <%- include('../includes/head.ejs') %>
     </head>
 
     <body>
@@ -8,9 +8,9 @@
                 <ul>
                     <% for(p of products){ %>
                         <li>
-                            <p><%= p.productData.title %> (<%= p.qty %>)</p>
+                            <p><%= p.title %> (<%= p.cartItem.quantity %>)</p>
                             <form action="/cart-delete-item" method="POST">
-                                <input type="hidden" value="<%= p.productData.id %>" name="productId">
+                                <input type="hidden" value="<%= p.id %>" name="productId">
                                 <button class="btn" type="submit">Delete</button>
                             </form>
                         </li>
@@ -22,3 +22,6 @@
 
         </main>
         <%- include('../includes/end.ejs') %>
+
+
+    
