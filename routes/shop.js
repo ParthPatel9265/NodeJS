@@ -1,60 +1,15 @@
-// const path = require('path');
-
-// const express = require('express');
-
-// const rootDir = require('../util/path');
-// const adminData = require('./admin');
-
-// const router = express.Router();
-
-// router.get('/', (req, res, next) => {
-//   console.log('shop.js', adminData.products);
-//   res.sendFile(path.join(rootDir, 'views', 'shop.html'));
-// });
-
-// module.exports = router;
-
-
-
-//
-
-
-// const path = require('path');
-
-// const express = require('express');
-
-// const rootDir = require('../util/path');
-// const adminData = require('./admin');
-
-// const router = express.Router();
-
-// router.get('/', (req, res, next) => {
-//   const products = adminData.products;
-//   console.log(products);
-//   res.render('shop', {
-//     prods: products,
-//     pageTitle: 'Shop',
-//     path: '/',
-//     hasProducts: products.length > 0,
-//     activeShop: true,
-//     productCSS: true
-//   });
-// });
-
-// module.exports = router;
-
-
-//const path = require('path');
-
 const express = require('express');
 
 const shopController = require('../controllers/shop');
 
-const router = express.Router();
+ const router = express.Router();
 
 router.get('/', shopController.getIndex);
 
 router.get('/products', shopController.getProducts);
+
+
+// router.get('/products/search',shopController.getProductsSearch);
 
 router.get('/products/:productId', shopController.getProduct);
 
