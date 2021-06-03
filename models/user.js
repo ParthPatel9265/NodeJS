@@ -36,6 +36,8 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  resetToken: String,
+  resetTokenExpiration: Date,
   cart: {
     items: [
       {
@@ -49,7 +51,6 @@ const userSchema = new Schema({
     ]
   }
 });
-
 
 userSchema.methods.addToCart = function(product) {
   const cartProductIndex = this.cart.items.findIndex(cp => {
@@ -88,4 +89,3 @@ userSchema.methods.clearCart = function() {
 };
 
 module.exports = mongoose.model('User', userSchema);
-
